@@ -128,14 +128,14 @@ namespace lgfx
     LGFX_INLINE   color_conv_t* getColorConverter(void) { return &_write_conv; }
     LGFX_INLINE   color_depth_t getColorDepth(void) const { return _write_conv.depth; }
 
-    /// @brief Allocate SPI bus for communication to the screen.
+    /// @brief Allocate bus for screen communication.
     /// @param transaction If true, transaction processing is performed.
-    /// @note Although SPI bus allocation and release are automatically performed when drawing functions are called,
-    /// using startWrite and endWrite before and after the drawing process suppresses SPI bus allocation
+    /// @note Although bus allocation and release are automatically performed when drawing functions are called,
+    /// using startWrite and endWrite before and after the drawing process suppresses bus allocation
     /// and release and improves drawing speed.
     /// In the case of electronic paper (EPD), drawing after startWrite() is reflected on the screen by calling endWrite().
     LGFX_INLINE   void startWrite(bool transaction = true) { _panel->startWrite(transaction); }
-    /// @brief Release SPI bus for communication to the screen.
+    /// @brief Release bus for screen communication.
     LGFX_INLINE   void endWrite(void)                      { _panel->endWrite(); }
     LGFX_INLINE   void beginTransaction(void)              { _panel->beginTransaction(); }
     LGFX_INLINE   void endTransaction(void)                { _panel->endTransaction(); }
